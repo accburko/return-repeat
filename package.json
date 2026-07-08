@@ -1,0 +1,24 @@
+{
+  "name": "return-repeat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/accburko/return-repeat.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/accburko/return-repeat/issues"
+  },
+  "homepage": "https://github.com/accburko/return-repeat#readme",
+  "dependencies": {
+    "bootstrap-icons": "^1.13.1"
+  }
+}

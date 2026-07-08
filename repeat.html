@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8" />
+
+        <title>Powtórka produkcji</title>
+
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+
+    <body>
+        <div class="repeat-card">
+            <div class="repeat-card-header">POWTÓRKA PRODUKCJI</div>
+            <div class="repeat-order">
+                <ul class="repeat-order-detais">
+                    <li class="repeat-order-date">05.7</li>
+                    <li class="repeat-order-number">
+                        <a
+                            class="repeat-order-link"
+                            href="https://panel-e.baselinker.com/orders.php#order:149386991"
+                            >149386991</a
+                        >
+                    </li>
+                    <li class="repeat-order-customer">
+                        Thomas Kriz ISI Kriz Samland GbR (DE)
+                    </li>
+                </ul>
+            </div>
+            <div class="repeat-card-content">
+                <!-- PRODUKT -->
+
+                <div class="repeat-product">
+                    <div class="repeat-product-description">
+                        <div class="repeat-product-title">OKRĄG</div>
+                        <span><b>222.5 x 30</b></span>
+                        <br />
+
+                        <span>🩶szary 💦wodo ✔stopery</span>
+                        <br />
+                    </div>
+
+                    <div class="repeat-product-elements">
+                        <div class="repeat-product-title">ELEMENTY</div>
+                        <div class="repeat-product-number">
+                            <div class="repeat-product-number-details">
+
+    <input
+        type="checkbox"
+        id="elementA">
+
+    <label for="elementA">
+        A (224.5 × 113.25)
+    </label>
+
+    <input
+        class="repeat-qty"
+        type="number"
+        min="1"
+        max="2"
+        value="1">
+
+</div>
+                            <div class="repeat-product-number-details">
+
+    <input
+        type="checkbox"
+        id="elementB">
+
+    <label for="elementB">
+        B (707.2875 × 34.5)
+    </label>
+
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUKT -->
+
+            <div class="repeat-product">
+                <div class="repeat-product-title">BOX</div>
+                <span><b>57.5 x 42.5 x 160</b></span
+                ><br />
+                <span>🩶szary 💦wodo 🔓zamek poj.</span>
+
+                <div class="repeat-product-elements">
+                    <label class="repeat-element">
+                        <input type="checkbox" />
+
+                        A
+                    </label>
+
+                    <label class="repeat-element">
+                        <input type="checkbox" />
+
+                        B1
+                    </label>
+
+                    <label class="repeat-element">
+                        <input type="checkbox" />
+
+                        B2
+                    </label>
+
+                    <label class="repeat-element">
+                        <input type="checkbox" />
+
+                        C1
+                    </label>
+
+                    <label class="repeat-element">
+                        <input type="checkbox" />
+
+                        C2
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="repeat-card-footer">
+            <button class="repeat-production-button" id="repeatButton" disabled>
+                PRODUKUJ NA NOWO
+            </button>
+        </div>
+
+        <script>
+            const checkboxes = document.querySelectorAll(
+                ".repeat-element input",
+            );
+
+            const repeatButton = document.getElementById("repeatButton");
+
+            checkboxes.forEach((checkbox) => {
+                checkbox.addEventListener("change", updateRepeatButton);
+            });
+
+            function updateRepeatButton() {
+                const checkedElements = document.querySelectorAll(
+                    ".repeat-element input:checked",
+                );
+
+                if (checkedElements.length > 0) {
+                    repeatButton.disabled = false;
+
+                    repeatButton.classList.add("active");
+                } else {
+                    repeatButton.disabled = true;
+
+                    repeatButton.classList.remove("active");
+                }
+            }
+        </script>
+    </body>
+</html>
