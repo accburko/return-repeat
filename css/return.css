@@ -64,6 +64,11 @@ body {
 /* ===========================
    ZAWARTOŚĆ
 =========================== */
+.return-container {
+    display: flex;
+    justify-content: space-between;
+}
+
 .return-content {
     padding: 30px;
 }
@@ -88,7 +93,18 @@ body {
     font-size: 18px;
     font-weight: bold;
 }
+.queue-button {
+    width: 75px;
+    height: 90px;
+    background-image: url("../images/return.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 48px;
 
+    background-color:rgb(240, 240, 240);
+    border:1px solid #000000;
+   border-radius: 4px;
+}
 /* ===========================
    RADIO
 =========================== */
