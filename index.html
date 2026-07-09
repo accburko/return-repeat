@@ -1,49 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Zamówienie</title>
 
-<head>
+        <link rel="stylesheet" href="css/index.css" />
+    </head>
 
-    <meta charset="UTF-8">
+    <body>
+        <div class="container">
+            <div class="order-card">
+                <div class="order-content"></div>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <div class="order-footer">
+                    <button
+                        class="footer-button repeat-button"
+                        onclick="openRepeatPage(149386991)"
+                    ></button>
 
-    <title>Repeat Popup</title>
-    <link rel="stylesheet" href="styles.css">
-
-
-</head>
-
-<body>
-
-    <div class="container">
-
-        <div class="order-card">
-
-            <div class="order-content"></div>
-
-            <div class="order-footer">
-
-                <!-- REPEAT -->
-                <div class="footer-button-wrapper">
-
-                    <button class="footer-button repeat-button" onclick="openRepeatPage(149386991)">
-                    </button>
-                    <button class="footer-button return-button" onclick="toggleRepeatPopup()">
-                    </button>
-
-                            
-
-                        </div>
-
-                    </div>
-
+                    <button
+                        class="footer-button return-button"
+                        onclick="openReturnPage(149386991)"
+                    ></button>
                 </div>
-
             </div>
+        </div>
 
-
-    <script src="script.js"></script>
-
-</body>
-
+        <script src="js/index.js"></script>
+    </body>
 </html>

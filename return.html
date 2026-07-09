@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Zwrot</title>
+
+        <link rel="stylesheet" href="css/return.css" />
+    </head>
+
+    <body>
+        <div class="return-card">
+            <div class="return-header">ZWROT</div>
+
+            <div class="return-order">
+                <ul class="return-order-details">
+                    <li class="return-order-date">05.07</li>
+
+                    <li class="return-order-number">
+                        <a class="return-order-link" href="#"> 149386991 </a>
+                    </li>
+
+                    <li class="return-order-customer">
+                        Thomas Kriz ISI Kriz Samland GbR (DE)
+                    </li>
+                </ul>
+            </div>
+
+            <div class="return-content">
+                <div class="return-panel">
+                    <div class="return-section">
+                        <div class="section-title">RODZAJ ZWROTU</div>
+
+                        <label class="return-option">
+                            <input
+                                type="radio"
+                                name="returnType"
+                                value="warehouse"
+                            />
+
+                            📦 Niedostarczone
+                        </label>
+
+                        <label class="return-option">
+                            <input
+                                type="radio"
+                                name="returnType"
+                                value="customer"
+                            />
+
+                            🔄 Zwrot od klienta
+                        </label>
+                    </div>
+
+                    <div class="return-section">
+                        <div class="section-title">MIEJSCE NA WÓZKU</div>
+
+                        <div class="selected-place" id="selectedPlace">
+                            Nie wybrano miejsca
+                        </div>
+
+                        <button
+                            class="choose-place-button"
+                            onclick="openCartModal()"
+                        >
+                            📦 Wybierz miejsce
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="return-footer">
+            <button id="returnButton" class="return-button" disabled>
+                ZAREJESTRUJ ZWROT
+            </button>
+        </div>
+
+        <!-- Modal -->
+
+        <div id="cartModal" class="modal">
+            <div class="modal-content">
+                <p>Wybierz miejsce na wózku</p>
+
+                <p class="modal-info">
+                    🟢 wolne &nbsp;&nbsp; 🟡 1 zwrot &nbsp;&nbsp; 🔴 pełne
+                </p>
+
+                <div class="cart-grid">
+                    <div></div>
+                    <div class="cart-header">A</div>
+                    <div class="cart-header">B</div>
+                    <div class="cart-header">C</div>
+
+                    <div class="cart-row">1</div>
+
+                    <button class="cart-place free" data-place="1A">0/2</button>
+                    <button class="cart-place used" data-place="1B">1/2</button>
+                    <button class="cart-place full" disabled>2/2</button>
+
+                    <div class="cart-row">2</div>
+
+                    <button class="cart-place free" data-place="2A">0/2</button>
+                    <button class="cart-place free" data-place="2B">0/2</button>
+                    <button class="cart-place used" data-place="2C">1/2</button>
+
+                    <div class="cart-row">3</div>
+
+                    <button class="cart-place full" disabled>2/2</button>
+                    <button class="cart-place free" data-place="3B">0/2</button>
+                    <button class="cart-place free" data-place="3C">0/2</button>
+
+                    <div class="cart-row">4</div>
+
+                    <button class="cart-place free" data-place="4A">0/2</button>
+                    <button class="cart-place free" data-place="4B">0/2</button>
+                    <button class="cart-place free" data-place="4C">0/2</button>
+                </div>
+
+                <div class="modal-buttons">
+                    <button class="modal-cancel" onclick="closeCartModal()">
+                        Anuluj
+                    </button>
+
+                    <button
+                        id="confirmPlaceButton"
+                        class="modal-confirm"
+                        disabled
+                    >
+                        Zatwierdź
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/return.js"></script>
+    </body>
+</html>

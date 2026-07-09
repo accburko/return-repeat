@@ -1,0 +1,319 @@
+body {
+    margin: 0;
+    background: #ececec;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================
+   KARTA
+========================= */
+
+.repeat-card {
+    width: 920px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    background: #f3f3f3;
+    border: 1px solid #bfbfbf;
+}
+
+.repeat-card-header {
+    display: flex;
+    align-items: center;
+    height: 68px;
+    padding: 0 24px;
+    font-size: 24px;
+    font-weight: bold;
+    background: #e5e5e5;
+    border-bottom: 1px solid #d1d1d1;
+}
+
+/* =========================
+   ZAMÓWIENIE
+========================= */
+
+.repeat-order {
+    background: #d3d3d3;
+    border-bottom: 1px solid #c5c5c5;
+}
+
+.repeat-order-details {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    list-style: none;
+    margin: 0;
+    padding: 14px 24px;
+}
+
+.repeat-order-date {
+    margin-right: 16px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.repeat-order-number {
+    margin-right: 16px;
+}
+
+.repeat-order-link {
+    color: #0d6efd;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.repeat-order-customer {
+    font-size: 20px;
+    margin-right: 120px;
+}
+
+/* =========================
+   ZAWARTOŚĆ
+========================= */
+
+.repeat-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding: 24px;
+}
+
+/* =========================
+   PRODUKT
+========================= */
+
+.repeat-product {
+    display: flex;
+    justify-content: space-between;
+    padding: 22px;
+    background: #fff;
+    border: 1px solid #d8d8d8;
+    border-radius: 8px;
+}
+
+.repeat-product-description {
+    width: 270px;
+}
+
+.repeat-product-title {
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #303030;
+}
+
+.repeat-product-elements {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.repeat-product-number {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.repeat-product-number-details {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.repeat-product-number-details label {
+    cursor: pointer;
+}
+
+/* =========================
+   CHECKBOXY
+========================= */
+
+.repeat-checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #d94b4b;
+}
+
+/* =========================
+   LICZNIK
+========================= */
+
+.repeat-qty {
+    width: 46px;
+    height: 24px;
+    padding: 0 4px;
+    text-align: center;
+    font-size: 13px;
+    border: 1px solid #cfcfcf;
+    border-radius: 5px;
+    background: #efefef;
+    color: #777;
+}
+
+.repeat-qty:enabled {
+    background: white;
+    color: #222;
+}
+
+/* =========================
+   STOPKA
+========================= */
+
+.repeat-card-footer {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    border-top: 1px solid #d8d8d8;
+    background: #efefef;
+}
+
+.repeat-production-button {
+    width: 280px;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    background: #bfbfbf;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: not-allowed;
+    transition: 0.2s;
+}
+
+.repeat-production-button.active {
+    background: #d94b4b;
+    cursor: pointer;
+}
+
+.repeat-production-button.active:hover {
+    background: #c53f3f;
+}
+.repeat-all {
+    margin-bottom: 20px;
+}
+
+.repeat-all-button {
+    width: 100%;
+    height: 54px;
+
+    border: 1px solid #d94b4b;
+    border-radius: 8px;
+
+    background: white;
+    color: #d94b4b;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.repeat-all-button:hover {
+    background: #fff2f2;
+}
+
+.repeat-all-button.active {
+    background: #d94b4b;
+    color: white;
+}
+.modal {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 1000;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    width: 460px;
+
+    padding: 24px;
+
+    background: white;
+
+    border-radius: 10px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+#selectedElementsList {
+    margin: 20px 0;
+
+    padding-left: 20px;
+}
+
+#selectedElementsList li {
+    margin-bottom: 8px;
+}
+
+.modal-buttons {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+}
+
+.modal-button-secondary,
+.modal-button-primary {
+    width: 120px;
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.modal-button-secondary {
+    background: #d8d8d8;
+}
+
+.modal-button-primary {
+    background: #d94b4b;
+
+    color: white;
+}
+.repeat-original-qty {
+    display: inline-block;
+
+    margin-left: 10px;
+
+    padding: 3px 8px;
+
+    border-radius: 12px;
+
+    background: #ececec;
+
+    color: #555;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    line-height: 1;
+}
