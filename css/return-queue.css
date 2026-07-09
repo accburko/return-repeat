@@ -1,0 +1,105 @@
+.return-queue-card {
+    width: 1100px;
+    margin: 20px auto;
+    background: #fff;
+    border: 1px solid #8f8f8f;
+}
+
+.queue-header {
+    display: flex;
+    align-items: center;
+    height: 42px;
+    background: #d9d9d9;
+    border-bottom: 1px solid #bfbfbf;
+}
+
+.queue-order {
+    width: 160px;
+    padding-left: 18px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.queue-customer {
+    flex: 1;
+    font-size: 18px;
+}
+
+.queue-actions {
+    display: flex;
+}
+
+.queue-button {
+    width: 72px;
+    height: 42px;
+    border: none;
+    border-left: 1px solid #999;
+    background: #ececec;
+    cursor: pointer;
+    font-size: 22px;
+}
+
+.queue-button:hover {
+    background: #dddddd;
+}
+
+.queue-body {
+    display: flex;
+}
+
+.queue-history {
+    width: 165px;
+    border-right: 1px solid #d5d5d5;
+    padding: 10px;
+    line-height: 34px;
+    font-size: 15px;
+}
+
+.queue-products {
+    flex: 1;
+}
+
+.queue-product {
+    display: flex;
+    padding: 18px;
+}
+.queue-product-name {
+    display: flex;
+    align-items: baseline;
+}
+.product-left {
+    width: 220px;
+}
+
+.product-left h3 {
+    margin: 0 0 15px 10px;
+    font-size: 20px;
+}
+
+.size {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.mb {
+    color: #555;
+}
+
+.product-right {
+    width: 180px;
+    line-height: 34px;
+    font-size: 18px;
+}
+
+.product-id {
+    width: 90px;
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.queue-products hr {
+    border: none;
+    border-top: 6px solid #ececec;
+}

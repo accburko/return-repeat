@@ -2,136 +2,84 @@
 <html lang="pl">
     <head>
         <meta charset="UTF-8" />
-        <title>Zwrot</title>
 
-        <link rel="stylesheet" href="css/return.css" />
+        <title>Zwroty</title>
+
+        <link rel="stylesheet" href="css/return-queue.css" />
+        <link rel="stylesheet" href="css/repeat.css" />
     </head>
 
     <body>
-        <div class="return-card">
-            <div class="return-header">ZWROT</div>
+        <div class="repeat-card">
+            <div class="repeat-card-header">ZWROTY</div>
 
-            <div class="return-order">
-                <ul class="return-order-details">
-                    <li class="return-order-date">05.07</li>
+            <div class="repeat-order">
+                <ul class="repeat-order-details">
+                    <li class="repeat-order-date">05.7</li>
 
-                    <li class="return-order-number">
-                        <a class="return-order-link" href="#"> 149386991 </a>
+                    <li class="repeat-order-number">
+                        <a
+                            class="repeat-order-link"
+                            id="orderNumber"
+                            href="https://panel-e.baselinker.com/orders.php#order:149386991"
+                        ></a>
                     </li>
 
-                    <li class="return-order-customer">
+                    <li class="repeat-order-customer" id="customerName">
                         Thomas Kriz ISI Kriz Samland GbR (DE)
                     </li>
                 </ul>
-            </div>
+                <div class="return-order-info">
+                    <div class="return-order-info">
+                        <div class="return-reason" id="returnReason"></div>
 
-            <div class="return-content">
-                <div class="return-panel">
-                    <div class="return-section">
-                        <div class="section-title">RODZAJ ZWROTU</div>
-
-                        <label class="return-option">
-                            <input
-                                type="radio"
-                                name="returnType"
-                                value="warehouse"
-                            />
-
-                            📦 Niedostarczone
-                        </label>
-
-                        <label class="return-option">
-                            <input
-                                type="radio"
-                                name="returnType"
-                                value="customer"
-                            />
-
-                            🔄 Zwrot od klienta
-                        </label>
-                        
-                    </div>
-
-                    <div class="return-section">
-                        <div class="section-title">MIEJSCE NA WÓZKU</div>
-
-                        <div class="selected-place" id="selectedPlace">
-                            Nie wybrano miejsca
-                        </div>
-
-                        <button
-                            class="choose-place-button"
-                            onclick="openCartModal()"
-                        >
-                            📦 Wybierz miejsce
-                        </button>
+                        <div class="return-shelf" id="returnShelf"></div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="return-footer">
-            <button id="returnButton" class="return-button" disabled>
-                ZAREJESTRUJ ZWROT
-            </button>
-        </div>
 
-        <!-- Modal -->
+            <div class="queue-products">
+                <div class="queue-product">
+                    <div class="product-left">
+                        <span class="queue-product-name">
+                            <input type="checkbox" />
+                            <h3>OKRĄG</h3>
+                        </span>
 
-        <div id="cartModal" class="modal">
-            <div class="modal-content">
-                <p>Wybierz miejsce na wózku</p>
+                        <div class="size">222.5 × 30</div>
 
-                <p class="modal-info">
-                    🟢 wolne &nbsp;&nbsp; 🟡 1 zwrot &nbsp;&nbsp; 🔴 pełne
-                </p>
+                        <div class="mb">24 mb</div>
+                    </div>
 
-                <div class="cart-grid">
-                    <div></div>
-                    <div class="cart-header">A</div>
-                    <div class="cart-header">B</div>
-                    <div class="cart-header">C</div>
-
-                    <div class="cart-row">1</div>
-
-                    <button class="cart-place free" data-place="1A">0/2</button>
-                    <button class="cart-place used" data-place="1B">1/2</button>
-                    <button class="cart-place full" disabled>2/2</button>
-
-                    <div class="cart-row">2</div>
-
-                    <button class="cart-place free" data-place="2A">0/2</button>
-                    <button class="cart-place free" data-place="2B">0/2</button>
-                    <button class="cart-place used" data-place="2C">1/2</button>
-
-                    <div class="cart-row">3</div>
-
-                    <button class="cart-place full" disabled>2/2</button>
-                    <button class="cart-place free" data-place="3B">0/2</button>
-                    <button class="cart-place free" data-place="3C">0/2</button>
-
-                    <div class="cart-row">4</div>
-
-                    <button class="cart-place free" data-place="4A">0/2</button>
-                    <button class="cart-place free" data-place="4B">0/2</button>
-                    <button class="cart-place free" data-place="4C">0/2</button>
+                    <div class="product-right">
+                        <div>🩶 szary</div>
+                        <div>💦 wodo</div>
+                        <div>✔ stopery</div>
+                    </div>
                 </div>
 
-                <div class="modal-buttons">
-                    <button class="modal-cancel" onclick="closeCartModal()">
-                        Anuluj
-                    </button>
+                <hr />
 
-                    <button
-                        id="confirmPlaceButton"
-                        class="modal-confirm"
-                        disabled
-                    >
-                        Zatwierdź
-                    </button>
+                <div class="queue-product">
+                    <div class="product-left">
+                        <span class="queue-product-name">
+                            <input type="checkbox" />
+                            <h3>BOX</h3>
+                        </span>
+                        <div class="size">57.5 × 42.5 × 160</div>
+
+                        <div class="mb">23 mb</div>
+                    </div>
+
+                    <div class="product-right">
+                        <div>🩶 szary</div>
+                        <div>💦 wodo</div>
+                        <div>🔒 zamek poj.</div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <script src="js/return.js"></script>
+        <script src="js/return-queue.js"></script>
     </body>
 </html>

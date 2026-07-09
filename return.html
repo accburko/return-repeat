@@ -27,7 +27,6 @@
 
             <div class="return-content">
                 <div class="return-panel">
-                    <div class="return-container">
                     <div class="return-section">
                         <div class="section-title">RODZAJ ZWROTU</div>
 
@@ -50,8 +49,6 @@
 
                             🔄 Zwrot od klienta
                         </label>
-                        <div class="queue-button"></div>
-</div>
                     </div>
 
                     <div class="return-section">
@@ -65,7 +62,7 @@
                             class="choose-place-button"
                             onclick="openCartModal()"
                         >
-                            📦 Wybierz miejsce
+                            📥
                         </button>
                     </div>
                 </div>
@@ -133,7 +130,36 @@
                 </div>
             </div>
         </div>
+        <div id="successModal" class="modal">
+            <div class="modal-content">
+                <h2>✔ Zwrot został zarejestrowany</h2>
 
+                <p>
+                    Rodzaj zwrotu:
+                    <b id="successType"></b>
+                </p>
+
+                <p>
+                    Miejsce na wózku:
+                    <b id="successPlace"></b>
+                </p>
+
+                <p>
+                    Zamówienie zostało dodane do kolejki
+                    <b>Zwroty</b>.
+                </p>
+
+                <div class="modal-buttons">
+                    <button class="modal-confirm" onclick="goToReturnsQueue()">
+                        Otwórz kolejkę zwrotów
+                    </button>
+
+                    <button class="modal-cancel" onclick="closeSuccessModal()">
+                        Zamknij
+                    </button>
+                </div>
+            </div>
+        </div>
         <script src="js/return.js"></script>
     </body>
 </html>

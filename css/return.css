@@ -35,6 +35,13 @@ body {
 .return-order {
     background: #d3d3d3;
 }
+.return-order-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    font-size: 16px;
+}
 
 .return-order-details {
     display: flex;
@@ -64,10 +71,6 @@ body {
 /* ===========================
    ZAWARTOŚĆ
 =========================== */
-.return-container {
-    display: flex;
-    justify-content: space-between;
-}
 
 .return-content {
     padding: 30px;
@@ -101,9 +104,9 @@ body {
     background-position: center;
     background-size: 48px;
 
-    background-color:rgb(240, 240, 240);
-    border:1px solid #000000;
-   border-radius: 4px;
+    background-color: rgb(240, 240, 240);
+    border: 1px solid #000000;
+    border-radius: 4px;
 }
 /* ===========================
    RADIO
@@ -136,20 +139,35 @@ body {
 }
 
 .choose-place-button {
-    width: 220px;
-    height: 44px;
-    border: none;
-    border-radius: 8px;
-    background: #4f8ef7;
-    color: white;
-    font-size: 15px;
-    font-weight: bold;
+    width: 100px;
+    height: 60px;
+
+    margin-top: 15px;
+    margin-right: 5px;
+    margin-left: 5px;
+
+    border: 1px solid #8b8b8b;
+    border-radius: 3px;
+
+    background: #efefef;
+
+    font-size: 20px;
+
     cursor: pointer;
-    transition: 0.2s;
+
+    transition: 0.15s;
 }
 
 .choose-place-button:hover {
-    background: #3a79e0;
+    background: #e3e3e3;
+}
+
+.choose-place-button:active {
+    background: #d8d8d8;
+}
+
+.choose-place-button:hover {
+    background: #e4e5e7;
 }
 
 /* ===========================
@@ -316,4 +334,8 @@ body {
 .modal-confirm:disabled {
     background: #bdbdbd;
     cursor: not-allowed;
+}
+.return-reason,
+.return-shelf {
+    color: #333;
 }

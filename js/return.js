@@ -1,18 +1,16 @@
 const returnButton = document.getElementById("returnButton");
-
 const confirmPlaceButton = document.getElementById("confirmPlaceButton");
-
 const selectedPlaceText = document.getElementById("selectedPlace");
-
 const cartModal = document.getElementById("cartModal");
+const successModal = document.getElementById("successModal");
 
 const returnTypes = document.querySelectorAll("input[name='returnType']");
 
 let selectedPlace = "";
 
-/* ===========================
+/* ==========================
    OTWIERANIE / ZAMYKANIE MODALA
-=========================== */
+========================== */
 
 function openCartModal() {
     const typeSelected = document.querySelector(
@@ -20,8 +18,7 @@ function openCartModal() {
     );
 
     if (!typeSelected) {
-        alert("Najpierw wybierz rodzaj zwrotu, a następnie miejsce na wózku.");
-
+        alert("Najpierw wybierz rodzaj zwrotu.");
         return;
     }
 
@@ -32,9 +29,9 @@ function closeCartModal() {
     cartModal.classList.remove("show");
 }
 
-/* ===========================
+/* ==========================
    WYBÓR MIEJSCA
-=========================== */
+========================== */
 
 document.querySelectorAll(".cart-place").forEach(function (button) {
     if (button.disabled) {
@@ -54,9 +51,9 @@ document.querySelectorAll(".cart-place").forEach(function (button) {
     });
 });
 
-/* ===========================
+/* ==========================
    ZATWIERDZENIE MIEJSCA
-=========================== */
+========================== */
 
 confirmPlaceButton.addEventListener("click", function () {
     selectedPlaceText.textContent = "Wybrane miejsce: " + selectedPlace;
@@ -66,17 +63,17 @@ confirmPlaceButton.addEventListener("click", function () {
     updateButton();
 });
 
-/* ===========================
+/* ==========================
    WYBÓR RODZAJU ZWROTU
-=========================== */
+========================== */
 
 returnTypes.forEach(function (radio) {
     radio.addEventListener("change", updateButton);
 });
 
-/* ===========================
+/* ==========================
    AKTYWACJA PRZYCISKU
-=========================== */
+========================== */
 
 function updateButton() {
     const typeSelected = document.querySelector(
@@ -85,18 +82,16 @@ function updateButton() {
 
     if (typeSelected && selectedPlace !== "") {
         returnButton.disabled = false;
-
         returnButton.classList.add("active");
     } else {
         returnButton.disabled = true;
-
         returnButton.classList.remove("active");
     }
 }
 
-/* ===========================
+/* ==========================
    REJESTRACJA ZWROTU
-=========================== */
+========================== */
 
 returnButton.addEventListener("click", function () {
     const type = document.querySelector(
@@ -105,23 +100,54 @@ returnButton.addEventListener("click", function () {
 
     const typeName =
         type === "warehouse" ? "Niedostarczone" : "Zwrot od klienta";
+    const returnData = {
+        orderId: "149386991",
+        customer: "Thomas Kriz ISI Kriz Samland GbR (DE)",
+        returnType: type,
+        cartPlace: selectedPlace,
+        status: "waiting",
+    };
 
-    alert(
-        "Zwrot został zarejestrowany.\n\n" +
-            "Rodzaj: " +
-            typeName +
-            "\n" +
-            "Miejsce: " +
-            selectedPlace,
-    );
+    localStorage.setItem("currentReturn", JSON.stringify(returnData));
+
+    document.getElementById("successType").textContent = typeName;
+
+    document.getElementById("successPlace").textContent = selectedPlace;
+
+    successModal.classList.add("show");
 });
+
+/* ==========================
+   ZAMYKANIE MODALI
+========================== */
+
+function closeSuccessModal() {
+    successModal.classList.remove("show");
+}
+
+function goToReturnsQueue() {
+    window.location.href = "return-queue.html";
+}
+
+/* Kliknięcie poza modal */
+
 cartModal.addEventListener("click", function (event) {
-    if (event.target === this) {
+    if (event.target === cartModal) {
         closeCartModal();
     }
 });
+
+successModal.addEventListener("click", function (event) {
+    if (event.target === successModal) {
+        closeSuccessModal();
+    }
+});
+
+/* ESC */
+
 document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
         closeCartModal();
+        closeSuccessModal();
     }
 });
