@@ -11,14 +11,54 @@ if (data) {
     document.getElementById("returnShelf").textContent = "📥" + data.cartPlace;
 }
 
-document.querySelector(".return-order-number a").textContent = data.orderId;
+const checkboxes = document.querySelectorAll(".return-checkbox");
 
-document.querySelector(".return-order-customer").textContent = data.customer;
+const cards = document.querySelectorAll(".action-card");
 
-document.querySelector(".return-reason").textContent =
-    data.returnType === "warehouse"
-        ? "📦 Niedostarczone"
-        : "🔄 Zwrot od klienta";
+function updateActionCards() {
+    const selected = document.querySelector(".return-checkbox:checked");
 
-document.querySelector(".return-shelf").textContent =
-    "📍 Wózek: " + data.cartPlace;
+    cards.forEach(function (card) {
+        if (selected) {
+            card.classList.add("active");
+        } else {
+            card.classList.remove("active");
+        }
+
+        if (selected) {
+            card.classList.add("active");
+        } else {
+            card.classList.remove("active");
+        }
+    });
+}
+
+checkboxes.forEach(function (box) {
+    box.addEventListener("change", updateActionCards);
+});
+
+updateActionCards();
+
+document.getElementById("repeatCard").onclick = function () {
+    if (this.disabled) return;
+
+    window.location.href = "repeat.html";
+};
+
+document.getElementById("repairCard").onclick = function () {
+    if (this.disabled) return;
+
+    alert("Przejście do naprawy");
+};
+
+document.getElementById("shippingCard").onclick = function () {
+    if (this.disabled) return;
+
+    alert("Przejście do ponownej wysyłki");
+};
+
+document.getElementById("disposeCard").onclick = function () {
+    if (this.disabled) return;
+
+    alert("Przejście do utylizacji");
+};

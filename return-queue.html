@@ -42,7 +42,7 @@
                 <div class="queue-product">
                     <div class="product-left">
                         <span class="queue-product-name">
-                            <input type="checkbox" />
+                            <input type="checkbox" class="return-checkbox" />
                             <h3>OKRĄG</h3>
                         </span>
 
@@ -63,7 +63,7 @@
                 <div class="queue-product">
                     <div class="product-left">
                         <span class="queue-product-name">
-                            <input type="checkbox" />
+                            <input type="checkbox" class="return-checkbox" />
                             <h3>BOX</h3>
                         </span>
                         <div class="size">57.5 × 42.5 × 160</div>
@@ -78,8 +78,31 @@
                     </div>
                 </div>
             </div>
-        </div>
 
+            <div class="return-actions">
+                <div class="return-actions-grid">
+                    <button class="action-card" id="repeatCard">
+                        <span>🔁</span>
+                        <strong>Ponowna produkcja</strong>
+                    </button>
+
+                    <button class="action-card" id="repairCard">
+                        <span>🪡</span>
+                        <strong>Naprawa</strong>
+                    </button>
+
+                    <button class="action-card" id="shippingCard">
+                        <span>📦</span>
+                        <strong>Ponowna wysyłka</strong>
+                    </button>
+
+                    <button class="action-card" id="disposeCard">
+                        <span>🗑</span>
+                        <strong>Utylizacja</strong>
+                    </button>
+                </div>
+            </div>
+        </div>
         <script src="js/return-queue.js"></script>
     </body>
 </html>

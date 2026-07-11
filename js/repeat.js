@@ -1,10 +1,17 @@
 const repeatButton = document.getElementById("repeatButton");
-const checkboxes = document.querySelectorAll(".repeat-checkbox");
-const modal = document.getElementById("confirmModal");
-const selectedList = document.getElementById("selectedElementsList");
-const modalInfo = document.getElementById("modalInfo");
+const repeatComment = document.getElementById("repeatComment");
 
-repeatButton.addEventListener("click", openConfirmModal);
+const checkboxes = document.querySelectorAll(".repeat-checkbox");
+
+const repeatAllButton = document.getElementById("repeatAllButton");
+
+const modal = document.getElementById("confirmModal");
+const modalInfo = document.getElementById("modalInfo");
+const selectedList = document.getElementById("selectedElementsList");
+
+/* ===========================
+   ILOŚĆ ELEMENTÓW
+=========================== */
 
 function toggleQty(checkbox) {
     const row = checkbox.closest(".repeat-product-number-details");
@@ -20,10 +27,18 @@ function toggleQty(checkbox) {
     updateRepeatButton();
 }
 
-function updateRepeatButton() {
-    const checked = document.querySelectorAll(".repeat-checkbox:checked");
+/* ===========================
+   AKTYWACJA PRZYCISKU
+=========================== */
 
-    if (checked.length > 0) {
+function updateRepeatButton() {
+    const anyChecked =
+        document.querySelector(".repeat-checkbox:checked") ||
+        repeatAllButton.classList.contains("active");
+
+    const commentFilled = repeatComment.value.trim().length > 0;
+
+    if (anyChecked && commentFilled) {
         repeatButton.disabled = false;
         repeatButton.classList.add("active");
     } else {
@@ -32,11 +47,25 @@ function updateRepeatButton() {
     }
 }
 
+/* ===========================
+   CHECKBOXY
+=========================== */
+
 checkboxes.forEach(function (checkbox) {
     checkbox.addEventListener("change", function () {
         toggleQty(this);
     });
 });
+
+/* ===========================
+   KOMENTARZ
+=========================== */
+
+repeatComment.addEventListener("input", updateRepeatButton);
+
+/* ===========================
+   NUMER ZAMÓWIENIA
+=========================== */
 
 const params = new URLSearchParams(window.location.search);
 
@@ -50,8 +79,9 @@ if (orderId) {
     orderLink.href = `https://panel-e.baselinker.com/orders.php#order:${orderId}`;
 }
 
-updateRepeatButton();
-const repeatAllButton = document.getElementById("repeatAllButton");
+/* ===========================
+   CAŁE ZAMÓWIENIE
+=========================== */
 
 repeatAllButton.addEventListener("click", function () {
     const allSelected = repeatAllButton.classList.contains("active");
@@ -62,27 +92,28 @@ repeatAllButton.addEventListener("click", function () {
         toggleQty(checkbox);
     });
 
-    if (allSelected) {
-        repeatAllButton.classList.remove("active");
-    } else {
-        repeatAllButton.classList.add("active");
-    }
+    repeatAllButton.classList.toggle("active");
 
     updateRepeatButton();
 });
+
+/* ===========================
+   OTWARCIE MODALA
+=========================== */
+
+repeatButton.addEventListener("click", openConfirmModal);
+
 function openConfirmModal() {
     selectedList.innerHTML = "";
 
     const orderNumber =
         document.querySelector(".repeat-order-link").textContent;
 
-    const allSelected = document
-        .getElementById("repeatAllButton")
-        .classList.contains("active");
+    const allSelected = repeatAllButton.classList.contains("active");
 
     if (allSelected) {
         modalInfo.innerHTML = `Zostanie utworzone nowe zlecenie produkcyjne dla <b>całego zamówienia</b>.<br><br>
-             Numer zamówienia: <b>${orderNumber}</b>`;
+            Numer zamówienia: <b>${orderNumber}</b>`;
 
         selectedList.style.display = "none";
     } else {
@@ -116,20 +147,56 @@ function openConfirmModal() {
 
     modal.classList.add("active");
 }
+
+/* ===========================
+   MODAL
+=========================== */
+
 document
     .getElementById("cancelProduction")
     .addEventListener("click", function () {
         modal.classList.remove("active");
     });
+
 document
     .getElementById("confirmProduction")
     .addEventListener("click", function () {
+
         modal.classList.remove("active");
 
+        // Odznacz wszystkie elementy
+        checkboxes.forEach(function (checkbox) {
+            checkbox.checked = false;
+            toggleQty(checkbox);
+        });
+
+        // Wyłącz "Całe zamówienie"
+        repeatAllButton.classList.remove("active");
+
+        // Wyczyść komentarz
+        repeatComment.value = "";
+
+        // Wyczyść listę w modalu
+        selectedList.innerHTML = "";
+
+        // Zablokuj przycisk
+        updateRepeatButton();
+
         alert("Nowe zlecenie produkcyjne zostało utworzone.");
+
     });
+/* ===========================
+   ESC
+=========================== */
+
 document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
-        closeCartModal();
+        modal.classList.remove("active");
     }
 });
+
+/* ===========================
+   START
+=========================== */
+
+updateRepeatButton();
