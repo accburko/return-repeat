@@ -18,7 +18,7 @@ function openCartModal() {
     );
 
     if (!typeSelected) {
-        alert("Najpierw wybierz rodzaj zwrotu.");
+        // alert("Najpierw wybierz rodzaj zwrotu.");
         return;
     }
 

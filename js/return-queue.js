@@ -148,7 +148,7 @@ shippingCard.addEventListener("click", () => {
 
     lockReturn();
 
-    alert("Zamówienie zostało przeniesione do kolejki Pakowanie");
+    // alert("Zamówienie zostało przeniesione do kolejki Pakowanie");
 });
 
 /* =========================
@@ -168,7 +168,7 @@ disposeCard.addEventListener("click", () => {
 
     lockReturn();
 
-    alert("Zamówienie przekazane do utylizacji");
+    // alert("Zamówienie przekazane do utylizacji");
 });
 
 /* =========================
@@ -180,7 +180,7 @@ document.getElementById("closeRepairModal").addEventListener("click", () => {
 
     lockReturn();
 
-    alert("Zamówienie zostało przekazane do naprawy");
+    // alert("Zamówienie zostało przekazane do naprawy");
 });
 
 /* =========================

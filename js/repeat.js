@@ -161,7 +161,6 @@ document
 document
     .getElementById("confirmProduction")
     .addEventListener("click", function () {
-
         modal.classList.remove("active");
 
         // Odznacz wszystkie elementy
@@ -182,8 +181,7 @@ document
         // Zablokuj przycisk
         updateRepeatButton();
 
-        alert("Nowe zlecenie produkcyjne zostało utworzone.");
-
+        // alert("Nowe zlecenie produkcyjne zostało utworzone.");
     });
 /* ===========================
    ESC
