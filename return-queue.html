@@ -26,19 +26,29 @@
                     </li>
 
                     <li class="repeat-order-customer" id="customerName">
-                        Thomas Kriz ISI Kriz Samland GbR (DE)
+                        Thomas Kriz ISI Kriz Samland GbR
                     </li>
                 </ul>
                 <div class="return-order-info">
-                    <div class="return-order-info">
-                        <div class="return-reason" id="returnReason"></div>
+                    <div class="return-reason" id="returnReason"></div>
 
-                        <div class="return-shelf" id="returnShelf"></div>
+                    <div class="return-shelf" id="returnShelf"></div>
+                    <div class="return-decision">
+                        <div id="decisionType" class="decision-type waiting">
+                            🟡 Oczekiwanie
+                        </div>
+
+                        <div class="decision-note">
+                            <textarea
+                                id="decisionComment"
+                                placeholder="Uwagi"
+                            ></textarea>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="queue-products">
+            <div class="queue-products" id="productsSection">
                 <div class="queue-product">
                     <div class="product-left">
                         <span class="queue-product-name">
@@ -80,26 +90,48 @@
             </div>
 
             <div class="return-actions">
+                <div id="repairPanel" class="repair-panel">
+                    <label for="repairComment">
+                        Powód naprawy <span class="required">*</span>
+                    </label>
+
+                    <textarea id="repairComment" rows="5"></textarea>
+
+                    <button
+                        id="finishRepairButton"
+                        class="finish-repair-button"
+                        disabled
+                    >
+                        UTWÓRZ ZLECENIE NAPRAWY
+                    </button>
+                </div>
                 <div class="return-actions-grid">
                     <button class="action-card" id="repeatCard">
                         <span>🔁</span>
-                        <strong>Ponowna produkcja</strong>
                     </button>
 
                     <button class="action-card" id="repairCard">
                         <span>🪡</span>
-                        <strong>Naprawa</strong>
                     </button>
 
                     <button class="action-card" id="shippingCard">
                         <span>📦</span>
-                        <strong>Ponowna wysyłka</strong>
                     </button>
 
                     <button class="action-card" id="disposeCard">
                         <span>🗑</span>
-                        <strong>Utylizacja</strong>
                     </button>
+                </div>
+            </div>
+        </div>
+        <div id="repairModal" class="modal">
+            <div class="modal-content">
+                <h2>✔ Zlecenie naprawy utworzone</h2>
+                <p>Komentarz został zapisany.</p>
+
+                <p>Zamówienie zostało przekazane do naprawy</p>
+                <div class="modal-buttons">
+                    <button id="closeRepairModal">Zamknij</button>
                 </div>
             </div>
         </div>

@@ -33,18 +33,28 @@ body {
 ========================= */
 
 .repeat-order {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 18px 24px;
     background: #d3d3d3;
     border-bottom: 1px solid #c5c5c5;
-    display: flex;
 }
 
-.repeat-order-details {
-    display: flex;
-    justify-content: flex-start;
-    align-items: baseline;
-    list-style: none;
-    margin: 0;
-    padding: 14px 24px;
+.repeat-order-details{
+
+    flex:1;
+
+    display:flex;
+    align-items:flex-start;
+
+    gap:18px;
+
+    list-style:none;
+
+    margin:0;
+    padding:0;
+
 }
 
 .repeat-order-date {
@@ -66,7 +76,7 @@ body {
 
 .repeat-order-customer {
     font-size: 20px;
-    margin-right: 120px;
+    /* margin-right: 20px; */
 }
 
 /* =========================
@@ -181,6 +191,7 @@ body {
 .repeat-all-button {
     width: 100%;
     height: 54px;
+    margin-left: 40px;
 
     border: 1px solid #d94b4b;
     border-radius: 8px;

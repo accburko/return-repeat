@@ -336,6 +336,21 @@ body {
     cursor: not-allowed;
 }
 .return-reason,
-.return-shelf {
-    color: #333;
+.return-shelf{
+
+    display:flex;
+    align-items:center;
+
+    height:34px;
+
+    padding:0 12px;
+
+    background:white;
+
+    border-radius:6px;
+
+    font-size:14px;
+
+    font-weight:600;
+
 }

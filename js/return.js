@@ -102,7 +102,7 @@ returnButton.addEventListener("click", function () {
         type === "warehouse" ? "Niedostarczone" : "Zwrot od klienta";
     const returnData = {
         orderId: "149386991",
-        customer: "Thomas Kriz ISI Kriz Samland GbR (DE)",
+        customer: "Thomas Kriz ISI Kriz Samland GbR",
         returnType: type,
         cartPlace: selectedPlace,
         status: "waiting",
